@@ -2,18 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class gameManager : MonoBehaviour
+using TMPro;
+public class GameManager : MonoBehaviour
 {
+    private float puntos;
+    public TextMeshProUGUI textMesh;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        puntos = 0f;
+        textMesh.text = "Destruye las burbujas!";
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if(puntos != 0){
+        textMesh.text = "Score: " + puntos.ToString();
+        } 
     }
     
     public void EscenaInicio()
@@ -30,5 +36,9 @@ public class gameManager : MonoBehaviour
     {
         Application.Quit();
         Debug.Log("Salio");
+    }
+
+    public void SumarPuntos(float puntosEntrantes){
+        puntos += puntosEntrantes;
     }
 }
