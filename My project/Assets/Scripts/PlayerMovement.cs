@@ -119,6 +119,13 @@ public class FPSController : MonoBehaviour
         {
             rb.velocity = firePoint.forward * bulletSpeed;
         }
+
+        // Asegurar que el proyectil tenga el script Bullet
+        if (bullet.GetComponent<Bullet>() == null)
+        {
+            bullet.AddComponent<Bullet>();
+        }
     }
+
 }
 
